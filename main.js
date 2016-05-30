@@ -40,9 +40,6 @@ var fps = 0;
 var fpsCount = 0;
 var fpsTime = 0;
 
-// load an image to draw
-var chuckNorris = document.createElement("img");
-chuckNorris.src = "hero.png";
 
 function run()
 {
@@ -51,7 +48,7 @@ function run()
 	
 	var deltaTime = getDeltaTime();
 	
-	context.drawImage(chuckNorris, SCREEN_WIDTH/2 - chuckNorris.width/2, SCREEN_HEIGHT/2 - chuckNorris.height/2);
+	
 	
 		
 	// update the frame counter 
