@@ -40,7 +40,8 @@ var fps = 0;
 var fpsCount = 0;
 var fpsTime = 0;
 
-
+var player = new Player();
+var keyboard = new Keyboard();
 function run()
 {
 	context.fillStyle = "#ccc";		
@@ -48,7 +49,8 @@ function run()
 	
 	var deltaTime = getDeltaTime();
 	
-	
+	player.update(deltaTime);
+    player.draw();
 	
 		
 	// update the frame counter 
