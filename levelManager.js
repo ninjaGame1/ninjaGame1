@@ -1,7 +1,7 @@
 //Load the image to use for the level tileset
 var cells = [];
 var tileset = document.createElement("img");
-tileset.src = "./sprites/blocks.png";
+tileset.src = "./sprites/tiles.png";
 
 //Init Level manager
 var LAYER_LIST = {};
