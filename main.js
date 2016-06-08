@@ -40,27 +40,8 @@ var fps = 0;
 var fpsCount = 0;
 var fpsTime = 0;
 
-var tickEvents = [];
-
 var player = new Player();
 var keyboard = new Keyboard();
-
-  function LoadJS(file){
-    //Load File
-    c_filesLoading += 1;
-    var loading = true;
-    var NewScript =document.createElement('script');
-    NewScript.src = file;
-    NewScript.type = 'text/javascript';
-    NewScript.async = "async";
-    NewScript.onload = setTimeout(function() { var loading = false; console.debug("Finnished Loading: " + file); c_filesLoading -= 1; }, 11);
-
-    //Place in HTML document
-    document.getElementsByTagName('head')[0].appendChild(NewScript);
-  };
-
-
-
 function run()
 {
 	context.fillStyle = "#ccc";		
@@ -70,9 +51,6 @@ function run()
 	
 	player.update(deltaTime);
     player.draw();
-     for (i=0; i<tickEvents.length; i++){
-    window[tickEvents[i]](dt);
-  }
 	
 		
 	// update the frame counter 
