@@ -45,9 +45,9 @@ var keyboard = new Keyboard();
 
 
 var LAYER_COUNT = 3;
-var MAP = {tw: 100, th: 20}
-var TILE = 35;
-var TILESET_TILE = TILE * 2 + 10;
+var MAP = {tw: 50, th: 10}
+var TILE = 80;
+var TILESET_TILE = 80;
 var TILESET_PADDING = 0;
 var TILESET_SPACING = 0;
 var TILESET_COUNT_X = 7;
@@ -72,6 +72,7 @@ function drawMap()
                     var sy = TILESET_PADDING + (Math.floor(tileIndex / TILESET_COUNT_Y)) * (TILESET_TILE+TILESET_SPACING);
                     context.drawImage(tileset, sx, sy, TILESET_TILE, TILESET_TILE, x*TILE, (y-1)*TILE, TILESET_TILE, TILESET_TILE);
                 }
+                idx++
             }
         }
     }

@@ -5,7 +5,7 @@ var Player = function() {
 	this.width = 159;
 	this.height = 163;	
 
-	this.image.src = "hero.png";   
+	//this.image.src = "hero.png";   
 };
 
 Player.prototype.update = function(deltaTime)
