@@ -10,16 +10,13 @@ var Player = function() {
 
 Player.prototype.update = function(deltaTime)
 {		
-	if( typeof(this.rotation) == "undefined" )
-		this.rotation = 0;		
-	this.rotation += deltaTime;
+	
 }
 
 Player.prototype.draw = function()
 {
 	context.save();			
-		context.translate(this.x, this.y);
-		context.rotate(this.rotation);
-		context.drawImage(this.image, -this.width/2, -this.height/2);	
+    context.translate(this.x, this.y);		
+    context.drawImage(this.image, -this.width/2, -this.height/2);	
 	context.restore();	
 }
