@@ -78,7 +78,73 @@ function drawMap()
     }
 }
 
+//Collision 
 
+var cells = [];          // the array that holds our simplified collision data
+function initialize() {
+	  for(var layerIdx = 0; layerIdx < LAYER_COUNT; layerIdx++) {    // initialize the map
+        cells[layerIdx] = [];
+				var idx = 0;
+				for(var y = 0; y < level1.layers[layerIdx].height; y++) {
+					  cells[layerIdx][y] = [];
+						for(var x = 0; x < level1.layers[layerIdx].width; x++) {
+							  if(level1.layers[layerIdx].data[idx] != 0) {
+									      // for each tile we dinf in the layer data, we need to create four collisions 
+												// (because our collisions squares are 35x35 but the tile in the 
+												// level are 70x70)
+												cells[layerIdx][y][x] = 1;
+												cells[layerIdx][y-1][x] = 1;
+												cells[layerIdx][y-1][x+1] = 1;
+												cells[layerIdx][y][x+1] = 1; 
+								}
+								else if (cells[layerIdx][y][x] != 1) {
+									        // if we haven't set this cell's value, then set it to 0 now
+											cells[layerIdx][y][x] = 0;
+								}
+								idx++;
+						}
+				}
+		}
+}
+
+function cellatPixelCoord(layer, x, y) 
+{
+	 if(x < 0 || x > SCREEN_WIDTH || y <0)
+	     return 1;
+	  
+	 if(y > SCREEN_HEIGHT)
+	     return 0;
+	 return cellatPixelCoord(layer, p2t(x), p2t(y));
+};
+
+function cellatTileCoord(layer, tx, ty)
+{
+    if(tx < 0 || tx >= Map.tw || ty < 0)
+		    return 1;
+
+		if(ty >= Map.th)
+		    return 0;
+		return cells[layer][ty][tx];
+};
+
+function tiletoPixel(title)
+{
+	  return tile * TITLE;
+};
+
+function pixeltoTile(pixel)
+{
+	  return Math.floor(pixel/TITLE);
+};
+
+function bound(value, min, max)
+{
+	  if(value < min)
+		    return min;
+		if(value > max)
+		    return max;
+	  return value;
+}
 
 
 
