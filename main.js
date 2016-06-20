@@ -107,12 +107,12 @@ function cellatTileCoord(layer, tx, ty)
 
 function tiletoPixel(title)
 {
-	  return tile * TITLE;
+	  return tile * TILE;
 };
 
 function pixeltoTile(pixel)
 {
-	  return Math.floor(pixel/TITLE);
+	  return Math.floor(pixel/TILE);
 };
 
 function bound(value, min, max)
