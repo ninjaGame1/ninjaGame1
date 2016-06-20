@@ -44,7 +44,7 @@ var player = new Player();
 var keyboard = new Keyboard();
 
 
-var LAYER_COUNT = 3;
+var LAYER_COUNT = 2;
 var MAP = {tw: 50, th: 10}
 var TILE = 80;
 var TILESET_TILE = 80;
