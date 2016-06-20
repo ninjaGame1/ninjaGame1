@@ -105,7 +105,7 @@ function cellatTileCoord(layer, tx, ty)
 		return cells[layer][ty][tx];
 };
 
-function tiletoPixel(title)
+function tiletoPixel(tile)
 {
 	  return tile * TILE;
 };
