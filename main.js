@@ -56,28 +56,6 @@ var TILESET_COUNT_Y = 8;
 var tileset = document.createElement("img");
 tileset.src = "tiles.png"
 
-function drawMap()
-{
-    for(var layeridx=0; layeridx<LAYER_COUNT; layeridx++)
-    {
-        var idx = 0;
-        for(var y=0; y<level1.layers[layeridx].height; y++)
-        {
-            for (var x = 0; x <level1.layers[layeridx].width; x++)
-            {
-                if(level1.layers[layeridx].data[idx] !=0)
-                {
-                    var tileIndex = level1.layers[layeridx].data[idx] - 1;
-                    var sx = TILESET_PADDING + (tileIndex % TILESET_COUNT_X)*(TILESET_TILE + TILESET_SPACING);
-                    var sy = TILESET_PADDING + (Math.floor(tileIndex / TILESET_COUNT_Y)) * (TILESET_TILE+TILESET_SPACING);
-                    context.drawImage(tileset, sx, sy, TILESET_TILE, TILESET_TILE, x*TILE, (y-1)*TILE, TILESET_TILE, TILESET_TILE);
-                }
-                idx++
-            }
-        }
-    }
-}
-
 //Collision 
 
 var cells = [];          // the array that holds our simplified collision data
@@ -145,6 +123,29 @@ function bound(value, min, max)
 		    return max;
 	  return value;
 }
+
+function drawMap()
+{
+    for(var layeridx=0; layeridx<LAYER_COUNT; layeridx++)
+    {
+        var idx = 0;
+        for(var y=0; y<level1.layers[layeridx].height; y++)
+        {
+            for (var x = 0; x <level1.layers[layeridx].width; x++)
+            {
+                if(level1.layers[layeridx].data[idx] !=0)
+                {
+                    var tileIndex = level1.layers[layeridx].data[idx] - 1;
+                    var sx = TILESET_PADDING + (tileIndex % TILESET_COUNT_X)*(TILESET_TILE + TILESET_SPACING);
+                    var sy = TILESET_PADDING + (Math.floor(tileIndex / TILESET_COUNT_Y)) * (TILESET_TILE+TILESET_SPACING);
+                    context.drawImage(tileset, sx, sy, TILESET_TILE, TILESET_TILE, x*TILE, (y-1)*TILE, TILESET_TILE, TILESET_TILE);
+                }
+                idx++
+            }
+        }
+    }
+}
+
 
 
 
